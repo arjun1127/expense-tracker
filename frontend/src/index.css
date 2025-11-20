@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+/* Custom theme extensions */
+@layer base {
+  :root {
+    --font-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Colors */
+  .bg-green-500 { background-color: #0096FF; }
+  .bg-green-600 { background-color: #1434A4; }
+  .bg-yellow-500 { background-color: #FFB800; }
+  .bg-yellow-600 { background-color: #A47400; }
+  .bg-green-400 { background-color: #00C9A7; }
+  .bg-green-800 { background-color: #0A3D62; }
+
+  .bg-blue-500 { background-color: #79B5EC; }
+  .bg-blue-600 { background-color: #152432; }
+  .bg-purple-500 { background-color: #6C63FF;}
+  .bg-purple-600 { background-color: #3F3CBB;}
+  .bg-purple-700 { background-color: #2A287A;}
+  .bg-purple-400 { background-color: #c200fd;}
+
+  .bg-red-500 { background-color: #F37877; }
+  .bg-red-600 { background-color: #3E1716; }
+  .bg-red-700 { background-color: #F24E43; }
+
+  .bg-light-200 { background-color: #E8E9E9; }
+
+  .bg-dark-200 { background-color: #0D0F10; }
+  .bg-dark-300 { background-color: #131619; }
+  .bg-dark-400 { background-color: #1A1D21; }
+  .bg-dark-500 { background-color: #363A3D; }
+  .bg-dark-600 { background-color: #76828D; }
+  .bg-dark-700 { background-color: #ABB8C4; }
+
+  .text-green-500 { color: #0096FF; }
+  .text-green-600 { color: #1434A4; }
+
+  .text-blue-500 { color: #79B5EC; }
+  .text-blue-600 { color: #152432; }
+
+  .text-red-500 { color: #F37877; }
+  .text-red-600 { color: #3E1716; }
+  .text-red-700 { color: #F24E43; }
+
+  .text-light-200 { color: #E8E9E9; }
+
+  .text-dark-200 { color: #0D0F10; }
+  .text-dark-300 { color: #131619; }
+  .text-dark-400 { color: #1A1D21; }
+  .text-dark-500 { color: #363A3D; }
+  .text-dark-600 { color: #76828D; }
+  .text-dark-700 { color: #ABB8C4; }
+
+  /* Background Images */
+  .bg-appointments { background-image: url('/assets/images/appointments-bg.png'); }
+  .bg-pending { background-image: url('/assets/images/pending-bg.png'); }
+  .bg-cancelled { background-image: url('/assets/images/cancelled-bg.png'); }
+
+  /* Animations */
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+  @keyframes caret-blink {
+    0%, 70%, 100% { opacity: 1; }
+    20%, 50% { opacity: 0; }
+  }
+
+  .animate-accordion-down { animation: accordion-down 0.2s ease-out; }
+  .animate-accordion-up { animation: accordion-up 0.2s ease-out; }
+  .animate-caret-blink { animation: caret-blink 1.25s ease-out infinite; }
+}
+
+/* index.css */
+.input-box {
+  @apply w-full flex items-center justify-between gap-3 text-sm
+         bg-gray-800 text-gray-100
+         rounded-lg py-3 px-4 mb-4 mt-3
+         border border-gray-700
+         outline-none
+         focus-within:ring-2 focus-within:ring-blue-500;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@layer components {
+  .card {
+    @apply relative bg-gradient-to-br from-gray-800/80 to-gray-900/90 
+           border border-gray-700/60 backdrop-blur-md
+           rounded-2xl shadow-lg shadow-black/30
+           p-6 transition-transform transform hover:scale-[1.02]
+           hover:shadow-green-500/20 hover:border-green-500/50;
+  }
+
+  /* Glow line on top */
+
+
+  /* Subtle divider lines */
+  .card::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-[1px]
+           bg-gradient-to-r from-transparent via-green-500/20 to-transparent;
+  }
+}
+@layer components {
+  .card-btn {
+    @apply inline-flex items-center justify-center gap-2
+           bg-gradient-to-r from-green-500 to-blue-500
+            font-medium text-sm md:text-base
+           px-5 py-2.5 rounded-xl shadow-md shadow-green-500/30
+           transition-all duration-300;
+  }
+
+  .card-btn:hover {
+    @apply bg-gradient-to-r from-green-400 to-blue-400 
+           shadow-lg shadow-green-400/50 scale-105;
+  }
+
+  .card-btn:active {
+    @apply scale-95 shadow-inner;
+  }
+}
+@layer components {
+  .card-chart {
+    @apply relative bg-gradient-to-br from-gray-800/80 to-gray-900/90 
+           border border-gray-700/60 backdrop-blur-md
+           rounded-2xl shadow-lg shadow-black/30
+           overflow-visible p-4 md:p-5
+           transition-transform transform hover:scale-[1.02]
+           hover:shadow-green-500/20 hover:border-green-500/50;
+  }
+}
+
+/* Custom thin scrollbar for horizontal lists */
+/* Hide scrollbar but keep scroll functionality */
+.scroll-hidden {
+  overflow-y: auto; /* Enables scroll */
+  scrollbar-width: none; /* For Firefox */
+}
+
+.scroll-hidden::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, Edge */
+}
+
+/* === 🌌 Custom Dark Neon Calendar Theme === */
+
+.react-datepicker {
+  background-color: rgba(15, 23, 42, 0.95) !important; /* dark-slate tone */
+  border: 1px solid rgba(34, 211, 238, 0.2) !important; /* cyan border */
+  border-radius: 0.75rem !important;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.15) !important;
+  font-family: "Inter", sans-serif;
+  color: #e0f2fe !important;
+}
+
+/* Calendar Header */
+.react-datepicker__header {
+  background: linear-gradient(
+    to right,
+    rgba(34, 211, 238, 0.15),
+    rgba(59, 130, 246, 0.15)
+  ) !important;
+  border-bottom: 1px solid rgba(34, 211, 238, 0.3) !important;
+}
+
+/* Month / Year Dropdown */
+.react-datepicker__current-month,
+.react-datepicker-time__header,
+.react-datepicker-year-header {
+  color: #67e8f9 !important;
+  font-weight: 600;
+  text-shadow: 0 0 5px rgba(34, 211, 238, 0.4);
+}
+
+/* Navigation Arrows */
+.react-datepicker__navigation-icon::before {
+  border-color: rgba(34, 211, 238, 0.7) !important;
+}
+
+/* Days Grid */
+.react-datepicker__day,
+.react-datepicker__day-name {
+  color: #a5f3fc !important;
+}
+
+.react-datepicker__day:hover {
+  background: rgba(34, 211, 238, 0.15) !important;
+  color: #22d3ee !important;
+  border-radius: 8px !important;
+}
+
+/* Selected Day */
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background: linear-gradient(
+    135deg,
+    rgba(34, 211, 238, 0.6),
+    rgba(59, 130, 246, 0.6)
+  ) !important;
+  color: white !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.4);
+}
+
+/* Today’s Date */
+.react-datepicker__day--today {
+  border: 1px solid rgba(34, 211, 238, 0.5) !important;
+  border-radius: 10px !important;
+  color: #67e8f9 !important;
+}
+
+/* Month Navigation Buttons Hover */
+.react-datepicker__navigation:hover {
+  filter: brightness(1.3);
+}
+
+/* Time container (if enabled) */
+.react-datepicker__time-container {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  border-left: 1px solid rgba(34, 211, 238, 0.3) !important;
+}
+
+
