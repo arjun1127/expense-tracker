@@ -4,9 +4,9 @@ export const API_PATHS={
     AUTH:{
         LOGIN:`/api/v1/auth/login`,
         REGISTER:`/api/v1/auth/register`,
-        GET_USER_INFO:`/api/v1/auth/user`,
-        VERIFY: `/api/v1/auth/verify-otp`,
-        SEND_OTP: `/api/v1/auth/send-otp`
+        VERIFY_OTP: `/api/v1/auth/verify-otp`,
+        RESEND_OTP: "/api/v1/auth/resend-otp",
+        GET_USER_INFO:`/api/v1/auth/user`
     },
     DASHBOARD:{
         STATS:`/api/v1/dashboard`

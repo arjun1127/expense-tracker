@@ -18,6 +18,12 @@ const UserSchema =new mongoose.Schema({
         type: String,
         default: null,
     },
+    otp: { type: String },
+
+    otpExpiry: { type: Date },
+    
+    isVerified: { type: Boolean, default: false },
+
 }, { timestamps: true });
 
 // Hash the password before saving the user

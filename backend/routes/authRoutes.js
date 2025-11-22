@@ -1,5 +1,5 @@
 const express =require("express");
-const {registerUser, loginUser, getUserData} = require("../controllers/authController");
+const {registerUser, loginUser, getUserData,verifyOtp,resendOtp} = require("../controllers/authController");
 const {protect} = require("../middlewares/authMiddleware");
 const upload = require("../middlewares/uploadMiddleware");
 
@@ -7,6 +7,8 @@ const router = express.Router();
 
 
 router.post("/register", registerUser);
+router.post("/verify-otp", verifyOtp);
+router.post("/resend-otp", resendOtp);
 router.post("/login", loginUser);
 router.get("/user", protect ,getUserData);
 

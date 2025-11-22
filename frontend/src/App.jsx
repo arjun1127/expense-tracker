@@ -11,6 +11,8 @@ import Home from './pages/Dashboard/Home';
 import Income from './pages/Dashboard/Income';
 import Expense from './pages/Dashboard/Expense';
 import UserProvider from './context/userContext';
+import VerifyOtp from "./pages/Auth/VerifyOtpModal";
+
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           <Route path='/income' element={<Income />}/>
           <Route path='/signup' element={<SignUp />}/>
           <Route path='/expense' element={<Expense />}/>
+          <Route path="/verify-otp" element={<VerifyOtp />} />
+
         </Routes>
       </Router>
     </div>
