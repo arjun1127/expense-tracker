@@ -5,7 +5,6 @@ import { LuCalendarDays } from 'react-icons/lu'
 const IncomeTranscations = ({ transactions }) => {
   return (
     <div className="card relative overflow-hidden">
-      {/* Header */}
       <div className="flex items-center justify-between mb-6 mt-2 px-1">
         <h5 className="flex items-center gap-2 font-semibold bg-gradient-to-r from-green-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent tracking-wide drop-shadow-md">
           <LuCalendarDays className="text-cyan-300" />
@@ -15,7 +14,6 @@ const IncomeTranscations = ({ transactions }) => {
        
       </div>
 
-      {/* Scrollable Transactions */}
       <div className="max-h-[350px] overflow-y-auto pr-2 scroll-hidden">
         {transactions?.length > 0 ? (
           transactions.slice(0, 5).map((income) => (
@@ -37,7 +35,6 @@ const IncomeTranscations = ({ transactions }) => {
         )}
       </div>
 
-      {/* Decorative gradient line */}
       <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent"></div>
     </div>
   )

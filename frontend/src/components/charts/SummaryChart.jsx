@@ -13,7 +13,6 @@ import {
 const SummaryChart = ({ monthlyIncomeTrend, monthlyExpenseTrend }) => {
   if (!monthlyIncomeTrend || !monthlyExpenseTrend) return null;
 
-  // Merge both into one dataset
   const mergedData = [];
 
   const formatMonth = (m, y) => {

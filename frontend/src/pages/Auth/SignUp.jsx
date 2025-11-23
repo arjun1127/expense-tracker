@@ -78,7 +78,6 @@ const SignUp = () => {
   return (
     <AuthLayout>
       <div className="lg:w-[80%] max-w-2xl w-full bg-dark-400 rounded-2xl shadow-lg px-8 py-6 relative">
-        {/* Heading */}
         <h3 className="text-2xl font-semibold text-light-200 text-center mb-2">
           Create an Account
         </h3>
@@ -86,7 +85,6 @@ const SignUp = () => {
           Join us today! It only takes a few steps 
         </p>
 
-        {/* Form */}
         <form onSubmit={handleSignUp} className="flex flex-col gap-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
             <Input
@@ -140,7 +138,6 @@ const SignUp = () => {
           </p>
         </form>
 
-        {/* OTP Modal */}
         {showOtpModal && (
           <VerifyOtpModal
             email={email}

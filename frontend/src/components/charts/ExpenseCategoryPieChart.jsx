@@ -9,10 +9,8 @@ import {
 } from "recharts";
 import { motion } from "framer-motion";
 
-// ❤️ Red / rose gradient palette (expenses theme)
 const COLORS = ["#fb7185", "#f43f5e", "#be123c", "#fca5a5", "#e11d48", "#fecdd3"];
 
-// 🧠 Custom tooltip
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (

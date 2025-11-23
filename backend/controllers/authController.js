@@ -95,7 +95,6 @@ exports.verifyOtp = async (req, res) => {
         return res.status(400).json({ message: "Invalid or expired OTP" });
     }
 
-    // OTP Verified
     user.isVerified = true;
     user.otp = null;
     user.otpExpiry = null;
@@ -110,7 +109,6 @@ exports.verifyOtp = async (req, res) => {
 
 
 
-//login user
 exports.loginUser = async (req, res) => {
     const {email,password}=req.body;
     if(!email||!password){
@@ -132,7 +130,6 @@ exports.loginUser = async (req, res) => {
     }
 };
 
-//get user data
 exports.getUserData = async (req, res) => {
     try{
         const user = await User.findById(req.user.id).select("-password");

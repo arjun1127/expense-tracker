@@ -46,7 +46,6 @@ const TranscationInfoCard = ({
                  shadow-md hover:shadow-green-500/10
                  transition-all duration-300 ease-out hover:-translate-y-[1px]"
       >
-        {/* Left: Icon + Text */}
         <div className="flex items-center gap-3 min-w-0">
           <div
             className={`w-10 h-10 flex items-center justify-center text-lg text-white rounded-lg
@@ -72,7 +71,6 @@ const TranscationInfoCard = ({
           </div>
         </div>
 
-        {/* Right: Amount + Delete */}
         <div className="flex items-center gap-2 shrink-0">
           {!hideDeleteBtn && (
             <button
@@ -102,7 +100,6 @@ const TranscationInfoCard = ({
         </div>
       </div>
 
-      {/* 🔔 Confirmation Modal */}
       {showConfirm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
           <div className="bg-slate-900/90 border border-cyan-800/40 rounded-xl p-5 shadow-lg shadow-cyan-900/30 w-[90%] max-w-sm">

@@ -1,11 +1,9 @@
-// controllers/expenseController.js
 const Expense = require("../models/Expense");
 const Income = require("../models/Income");
 const User = require("../models/User");
 const xlsx = require("xlsx");
 const { Types } = require("mongoose");
 
-// ======================== ADD EXPENSE ========================
 exports.addExpense = async (req, res) => {
   const userId = req.user.id;
   try {
@@ -32,7 +30,6 @@ exports.addExpense = async (req, res) => {
   }
 };
 
-// ======================== GET ALL EXPENSES ========================
 exports.getAllExpense = async (req, res) => {
   const userId = req.user.id;
   try {
@@ -44,7 +41,6 @@ exports.getAllExpense = async (req, res) => {
   }
 };
 
-// ======================== DELETE EXPENSE ========================
 exports.deleteExpense = async (req, res) => {
   try {
     await Expense.findByIdAndDelete(req.params.id);
@@ -55,7 +51,6 @@ exports.deleteExpense = async (req, res) => {
   }
 };
 
-// ======================== DOWNLOAD EXCEL ========================
 exports.downloadExpenseExel = async (req, res) => {
   const userId = req.user.id;
   try {
@@ -79,7 +74,6 @@ exports.downloadExpenseExel = async (req, res) => {
   }
 };
 
-// ======================== EXPENSE SUMMARY (MONTHLY ANALYTICS) ========================
 exports.getExpenseSummary = async (req, res) => {
   const userId = req.user.id;
   try {
@@ -128,7 +122,6 @@ exports.getExpenseSummary = async (req, res) => {
   }
 };
 
-// ======================== TOP CATEGORIES ========================
 exports.getTopCategories = async (req, res) => {
   const userId = req.user.id;
   try {
@@ -153,7 +146,6 @@ exports.getTopCategories = async (req, res) => {
   }
 };
 
-// ======================== MONTHLY GROWTH ========================
 exports.getExpenseGrowth = async (req, res) => {
   const userId = req.user.id;
   try {
@@ -208,7 +200,6 @@ exports.getExpenseGrowth = async (req, res) => {
   }
 };
 
-// ======================== FILTER BY DATE RANGE ========================
 exports.filterExpenses = async (req, res) => {
   const userId = req.user.id;
   const { startDate, endDate } = req.query;
@@ -242,7 +233,6 @@ exports.filterExpenses = async (req, res) => {
   }
 };
 
-// ======================== BUDGET STATUS ========================
 exports.getBudgetStatus = async (req, res) => {
   const userId = req.user.id;
   try {
@@ -294,7 +284,6 @@ exports.getBudgetStatus = async (req, res) => {
   }
 };
 
-// ======================== EXPENSE TO INCOME RATIO ========================
 exports.getExpenseIncomeRatio = async (req, res) => {
   const userId = req.user.id;
   try {

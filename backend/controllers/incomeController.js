@@ -2,9 +2,7 @@ const User = require("../models/User");
 const xlsx = require("xlsx");
 const Income = require("../models/Income");
 
-// =======================
-// Add Income
-// =======================
+
 exports.addIncome = async (req, res) => {
   const userId = req.user.id;
   try {
@@ -33,9 +31,7 @@ exports.addIncome = async (req, res) => {
   }
 };
 
-// =======================
-// Get All Incomes
-// =======================
+
 exports.getAllIncome = async (req, res) => {
   const userId = req.user.id;
   try {
@@ -47,9 +43,7 @@ exports.getAllIncome = async (req, res) => {
   }
 };
 
-// =======================
-// Delete Income
-// =======================
+
 exports.deleteIncome = async (req, res) => {
   const userId = req.user.id;
   try {
@@ -61,9 +55,7 @@ exports.deleteIncome = async (req, res) => {
   }
 };
 
-// =======================
-// Download Income Excel
-// =======================
+
 exports.downloadIncomeExel = async (req, res) => {
   const userId = req.user.id;
   try {
@@ -89,9 +81,7 @@ exports.downloadIncomeExel = async (req, res) => {
   }
 };
 
-// =======================
-// 1️⃣ Monthly & Yearly Summary
-// =======================
+
 exports.getIncomeSummary = async (req, res) => {
   const userId = req.user.id;
   try {
@@ -121,9 +111,7 @@ exports.getIncomeSummary = async (req, res) => {
   }
 };
 
-// =======================
-// 2️⃣ Filter / Search Income
-// =======================
+
 exports.filterIncome = async (req, res) => {
   const userId = req.user.id;
   const { startDate, endDate, category, search } = req.query;
@@ -147,9 +135,7 @@ exports.filterIncome = async (req, res) => {
   }
 };
 
-// =======================
-// 3️⃣ Top Income Sources
-// =======================
+
 exports.getTopIncomeSources = async (req, res) => {
   const userId = req.user.id;
   try {
@@ -173,9 +159,6 @@ exports.getTopIncomeSources = async (req, res) => {
   }
 };
 
-// =======================
-// 4️⃣ Monthly Growth Analytics
-// =======================
 exports.getIncomeGrowth = async (req, res) => {
   const userId = req.user.id;
   try {

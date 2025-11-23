@@ -27,10 +27,8 @@ const IncomeMonthlyChart = ({ data }) => {
       <div style={{ width: "100%", height: 320 }}>
         <ResponsiveContainer>
           <LineChart data={chartData}>
-            {/* Soft grid lines */}
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(34,211,238,0.1)" />
 
-            {/* X and Y axes styling */}
             <XAxis
               dataKey="month"
               stroke="#22d3ee"
@@ -42,7 +40,6 @@ const IncomeMonthlyChart = ({ data }) => {
               tickFormatter={(value) => `₹${value / 1000}k`}
             />
 
-            {/* Tooltip with glowing border */}
             <Tooltip
               contentStyle={{
                 backgroundColor: "#0f172a",
@@ -56,7 +53,6 @@ const IncomeMonthlyChart = ({ data }) => {
 
             <Legend wrapperStyle={{ color: "#94a3b8", fontSize: "0.9rem" }} />
 
-            {/* Line gradient for smoother visuals */}
             <defs>
               <linearGradient id="incomeGradient" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#22d3ee" stopOpacity={0.9} />

@@ -55,7 +55,6 @@ const Login = () => {
           Please login to continue managing your expenses
         </p>
 
-        {/* Form Inputs */}
         <form onSubmit={handleLogin} className="flex flex-col gap-2">
           <Input
             label="Email Address"

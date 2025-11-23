@@ -34,10 +34,8 @@ const ExpenseMonthlyChart = ({ data }) => {
       <div style={{ width: "100%", height: 320 }}>
         <ResponsiveContainer>
           <LineChart data={chartData}>
-            {/* Soft grid lines */}
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(244,63,94,0.1)" />
 
-            {/* X and Y axes styling */}
             <XAxis
               dataKey="month"
               stroke="#fb7185"
@@ -49,7 +47,6 @@ const ExpenseMonthlyChart = ({ data }) => {
               tickFormatter={(value) => `₹${value / 1000}k`}
             />
 
-            {/* Tooltip styling */}
             <Tooltip
               contentStyle={{
                 backgroundColor: "#0f172a",
@@ -63,7 +60,6 @@ const ExpenseMonthlyChart = ({ data }) => {
 
             <Legend wrapperStyle={{ color: "#fecaca", fontSize: "0.9rem" }} />
 
-            {/* Line gradient for smooth visuals */}
             <defs>
               <linearGradient id="expenseGradient" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#fb7185" stopOpacity={0.9} />
@@ -71,7 +67,6 @@ const ExpenseMonthlyChart = ({ data }) => {
               </linearGradient>
             </defs>
 
-            {/* Line for Expense */}
             <Line
               type="monotone"
               dataKey="expense"

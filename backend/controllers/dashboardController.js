@@ -11,9 +11,7 @@ exports.getDashboardStats = async (req, res) => {
       return res.status(400).json({ success: false, message: "Invalid user ID" });
     }
 
-    // -------------------------------
-    // 1️⃣ Total Income & Expense
-    // -------------------------------
+
     const totalIncome = await Income.aggregate([
       { $match: { userId: userObjectId } },
       { $group: { _id: null, totalAmount: { $sum: "$amount" } } },
@@ -28,9 +26,7 @@ exports.getDashboardStats = async (req, res) => {
     const totalExpenseAmount = totalExpense[0]?.totalAmount || 0;
     const totalBalance = totalIncomeAmount - totalExpenseAmount;
 
-    // -------------------------------
-    // 2️⃣ Income & Expense Breakdown (for pie charts)
-    // -------------------------------
+   
     const expenseByCategory = await Expense.aggregate([
       { $match: { userId: userObjectId } },
       { $group: { _id: "$category", totalAmount: { $sum: "$amount" } } },
@@ -43,9 +39,7 @@ exports.getDashboardStats = async (req, res) => {
       { $sort: { totalAmount: -1 } },
     ]);
 
-    // -------------------------------
-    // 3️⃣ Monthly Trend (Last 6 months)
-    // -------------------------------
+    
     const sixMonthsAgo = new Date();
     sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
 
@@ -71,9 +65,6 @@ exports.getDashboardStats = async (req, res) => {
       { $sort: { "_id.year": 1, "_id.month": 1 } },
     ]);
 
-    // -------------------------------
-    // 4️⃣ Short-term Transactions
-    // -------------------------------
     const last60DaysIncomeTransactions = await Income.find({
       userId,
       date: { $gte: new Date(Date.now() - 60 * 24 * 60 * 60 * 1000) },
@@ -89,9 +80,7 @@ exports.getDashboardStats = async (req, res) => {
       0
     );
 
-    // -------------------------------
-    // 5️⃣ Combined Recent Transactions
-    // -------------------------------
+
     const lastTransaction = [
       ...(await Income.find({ userId }).sort({ date: -1 }).limit(5)).map((t) => ({
         ...t.toObject(),
@@ -105,9 +94,7 @@ exports.getDashboardStats = async (req, res) => {
       .sort((a, b) => b.date - a.date)
       .slice(0, 5);
 
-    // -------------------------------
-    // 6️⃣ Calculated Metrics
-    // -------------------------------
+   
     const totalSavingsRate =
       totalIncomeAmount > 0 ? ((totalBalance / totalIncomeAmount) * 100).toFixed(2) : 0;
 
@@ -118,9 +105,7 @@ exports.getDashboardStats = async (req, res) => {
         ? (totalExpenseLast30Days / 30).toFixed(2)
         : 0;
 
-    // -------------------------------
-    // ✅ Final Response
-    // -------------------------------
+  
     res.json({
       success: true,
       totalBalance,

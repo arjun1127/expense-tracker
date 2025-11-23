@@ -9,10 +9,7 @@ import {
 } from "recharts";
 import { motion } from "framer-motion";
 
-// 🌈 Elegant color palette matching your project (cyan → blue → violet)
 const COLORS = ["#06b6d4", "#3b82f6", "#8b5cf6", "#22d3ee", "#0ea5e9", "#a855f7"];
-
-// ✨ Custom tooltip style
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
@@ -114,7 +111,6 @@ const IncomeSourcePieChart = ({ data = [] }) => {
         </ResponsiveContainer>
       </div>
 
-      {/* ✨ Footer Summary */}
       {data.length > 0 && (
         <motion.div
           className="mt-4 p-3 rounded-lg border border-cyan-700/20 bg-dark-700/30 text-gray-300 text-sm"

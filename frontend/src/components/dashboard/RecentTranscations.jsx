@@ -6,7 +6,6 @@ const RecentTranscations = ({ transactions, onSeeMore }) => {
   return (
     <div className="card relative overflow-hidden">
 
-      {/* Header */}
       <div className="flex items-center justify-between mb-6 mt-2 px-1">
         <h5 className="font-semibold bg-gradient-to-r from-green-800 via-blue-400 to-green-400 bg-clip-text text-transparent tracking-wide drop-shadow-md">
           Activity 
