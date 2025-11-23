@@ -23,8 +23,6 @@ app.use("/api/v1/income", incomeRoutes);
 app.use("/api/v1/expense",expenseRoute);
 app.use("/api/v1/dashboard", dashboardRoute);
 
-// const otpRoutes = require("./routes/otpRoutes");
-// app.use("/api/v1/auth", otpRoutes);
 
 
 //server uploads folder as static
