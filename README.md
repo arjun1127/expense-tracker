@@ -4,15 +4,15 @@
 Here are a few screenshots of the deployed app. Place the screenshot files in the repository folder `screenshots/` (or `frontend/public/images/`) and reference them with relative paths.
 
 ### 1
-<img src=".Screenshot from 2025-11-26 12-31-14.png" width="1200" alt="Dashboard overview" />
+<img src="Screenshot from 2025-11-26 12-31-14.png" width="1200" alt="Dashboard overview" />
 
-### 2 page
+### 2 
 <img src="Screenshot from 2025-11-26 12-31-42.png" width="1200" alt="Income records and charts" />
 
-### 2 page (top)
+### 3
 <img src="Screenshot from 2025-11-26 12-32-02.png" width="1200" alt="Expense form and top metrics" />
 
-### 4 page (charts & cards)
+### 4
 <img src="Screenshot from 2025-11-26 12-32-28.png" width="1200" alt="Expense charts and list" />
 
 ---
