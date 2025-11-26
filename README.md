@@ -3,17 +3,17 @@
 
 Here are a few screenshots of the deployed app. Place the screenshot files in the repository folder `screenshots/` (or `frontend/public/images/`) and reference them with relative paths.
 
-### Dashboard
-<img src="./screenshots/dashboard.png" width="1200" alt="Dashboard overview" />
+### 1
+<img src=".Screenshot from 2025-11-26 12-31-14.png" width="1200" alt="Dashboard overview" />
 
-### Income page
-<img src="./screenshots/income.png" width="1200" alt="Income records and charts" />
+### 2 page
+<img src="Screenshot from 2025-11-26 12-31-42.png" width="1200" alt="Income records and charts" />
 
-### Expense page (top)
-<img src="./screenshots/expense-top.png" width="1200" alt="Expense form and top metrics" />
+### 2 page (top)
+<img src="Screenshot from 2025-11-26 12-32-02.png" width="1200" alt="Expense form and top metrics" />
 
-### Expense page (charts & cards)
-<img src="./screenshots/expense-bottom.png" width="1200" alt="Expense charts and list" />
+### 4 page (charts & cards)
+<img src="Screenshot from 2025-11-26 12-32-28.png" width="1200" alt="Expense charts and list" />
 
 ---
 # Expense Tracker — Backend
