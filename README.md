@@ -1,4 +1,5 @@
-
+# Design implemented screen-Shots 
+  
 # Expense Tracker — Backend
 
 This README documents the backend for the Expense Tracker project (Express API). It covers features, folder structure, environment variables, setup, and usage.
@@ -105,3 +106,161 @@ The `backend` contains `Expense.xlsx` and `incomes.xlsx` which you can use as sa
 - Use the `CLIENT_URL` value to allow your frontend to call the API.
 
 ---
+
+# Expense Tracker — Frontend
+
+This is the frontend for the Expense Tracker application. It is a React + Vite app using TailwindCSS, Auth0 (for authentication), Axios for API calls, and several UI/utility libraries (framer-motion, react-hot-toast, recharts, etc.).
+
+---
+
+## Features (high level)
+- React 19 + Vite
+- Auth0 authentication integration
+- Expense list, charts and expense management UI
+- TailwindCSS for styling
+- API calls via Axios
+- Date handling via moment, date picking via react-datepicker
+- Recharts for charts and visualizations
+- Toast notifications & animations
+
+---
+
+## Tech stack
+- React 19
+- Vite
+- TailwindCSS
+- Auth0 (via @auth0/auth0-react)
+- Axios
+- Recharts
+- react-router-dom
+- react-hot-toast, react-toastify
+- framer-motion
+
+---
+
+## Prerequisites
+- Node.js v18+ (or latest LTS)
+- npm (or yarn/pnpm)
+- A running backend API (if you want to connect to the server)
+- Auth0 app credentials (if Auth0 is used in the project)
+
+---
+
+## Quick setup
+
+1. Clone repository (if not already):
+   git clone <repo-url>
+   cd expense-tracker/frontend
+
+2. Install dependencies:
+   npm install
+
+3. Create environment file
+   The frontend uses Vite, so environment variables should be prefixed with `VITE_`. Create a file at the project root of the frontend folder named `.env` (this file should not be committed if it contains secrets).
+
+   Example `.env`:
+   VITE_API_URL=https://api.example.com
+   VITE_AUTH0_DOMAIN=your-auth0-domain.us.auth0.com
+   VITE_AUTH0_CLIENT_ID=your-auth0-client-id
+   VITE_AUTH0_AUDIENCE=your-auth0-audience
+   # Optional
+   VITE_APP_NAME=Expense Tracker
+
+   Notes:
+   - `VITE_API_URL` is used as the base URL for Axios requests to your backend.
+   - Auth0 variables are required only if the app uses Auth0 authentication.
+
+4. Run the dev server:
+   npm run dev
+
+   Default Vite dev server port: 5173 (visit http://localhost:5173 unless configured otherwise)
+
+5. Build for production:
+   npm run build
+
+6. Preview production build locally:
+   npm run preview
+
+---
+
+## Available scripts
+(From frontend/package.json)
+- npm run dev — start Vite dev server
+- npm run build — build production assets
+- npm run preview — preview built assets locally
+- npm run lint — run ESLint
+
+---
+
+## Project structure (frontend/src)
+- src/
+  - main.jsx — application entry (mounts React app)
+  - App.jsx — top-level app component and routes
+  - index.css — global styles (Tailwind directives and custom CSS)
+  - assets/ — static assets (images/fonts/etc.)
+  - components/ — reusable UI components
+  - pages/ — route-level pages (Dashboard, Login, Expenses, etc.)
+  - context/ — React Context providers (Auth, state, etc.)
+  - hooks/ — custom React hooks
+  - utils/ — utility functions (formatters, API helpers)
+  - (others) — as the codebase evolves
+
+---
+
+## Auth0 integration
+This project includes `@auth0/auth0-react`. To enable authentication:
+- Create an Auth0 application at https://manage.auth0.com/
+- Add the allowed callback URLs (e.g., http://localhost:5173) and allowed logout URLs
+- Add the `VITE_AUTH0_DOMAIN`, `VITE_AUTH0_CLIENT_ID` and optionally `VITE_AUTH0_AUDIENCE` to your `.env` file
+- The app will consume those variables where the Auth0Provider is configured (likely in context or main.jsx)
+
+---
+
+## Environment & API
+- Ensure your backend exposes endpoints expected by the frontend (check Axios usage in the project to verify endpoints).
+- Set `VITE_API_URL` to the base backend URL. Example usage in code:
+  axios.create({ baseURL: import.meta.env.VITE_API_URL })
+
+---
+
+## TailwindCSS
+- Tailwind is installed and configured for Vite. The global CSS file (`index.css`) likely contains Tailwind directives:
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+- If you need to reconfigure Tailwind, update the `tailwind.config.js` (if present) and postcss/vite plugin settings.
+
+---
+
+## Linting & Types
+- ESLint is included (scripts: `lint`).
+- Type definitions for React are present in devDependencies (`@types/react`, `@types/react-dom`) to support TypeScript-aware tooling or type hints in editors — but the codebase appears to be JavaScript/JSX.
+
+---
+
+## Common troubleshooting
+- Dev server crashes on start:
+  - Ensure Node version is compatible.
+  - Delete node_modules and reinstall: rm -rf node_modules package-lock.json && npm install
+- ENV variables not picked up:
+  - Ensure variables are prefixed with `VITE_` and you restarted the dev server after editing `.env`.
+- Styling missing:
+  - Verify `index.css` is imported in `main.jsx` and Tailwind directives are present.
+- Auth login loop:
+  - Check Auth0 callback / logout allowed URLs and client settings.
+
+---
+
+## Deployment notes
+- Build with `npm run build`. The `dist/` folder can be served by a static host (Netlify, Vercel, Surge, GitHub Pages with appropriate configuration, or a static file server behind your backend).
+- If deploying to a platform that sets environment variables, ensure the VITE_* variables are provided to the build environment so the compiled app contains the API and Auth settings.
+
+---
+
+## Contributing
+- Open an issue or PR for feature requests or bug fixes.
+- Follow existing code style and run `npm run lint` before submitting PRs.
+
+---
+
