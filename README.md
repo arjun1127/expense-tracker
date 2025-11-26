@@ -1,6 +1,3 @@
-# expense-tracker
-
-## Backend 
 
 # Expense Tracker — Backend
 
