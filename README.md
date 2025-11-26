@@ -1,5 +1,21 @@
 # Design implemented screen-Shots 
-  
+  ## Screenshots
+
+Here are a few screenshots of the deployed app. Place the screenshot files in the repository folder `screenshots/` (or `frontend/public/images/`) and reference them with relative paths.
+
+### Dashboard
+<img src="./screenshots/dashboard.png" width="1200" alt="Dashboard overview" />
+
+### Income page
+<img src="./screenshots/income.png" width="1200" alt="Income records and charts" />
+
+### Expense page (top)
+<img src="./screenshots/expense-top.png" width="1200" alt="Expense form and top metrics" />
+
+### Expense page (charts & cards)
+<img src="./screenshots/expense-bottom.png" width="1200" alt="Expense charts and list" />
+
+---
 # Expense Tracker — Backend
 
 This README documents the backend for the Expense Tracker project (Express API). It covers features, folder structure, environment variables, setup, and usage.
